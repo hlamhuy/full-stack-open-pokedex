@@ -1,14 +1,14 @@
-import { defineConfig } from "@playwright/test";
+import { defineConfig } from '@playwright/test';
 export default defineConfig({
-  testDir: "./e2e-tests",
-  testIgnore: "./test",
+  testDir: './e2e-tests',
+  testIgnore: './test',
   webServer: {
-    command: "npm run start",
-    url: "http://127.0.0.1:8080",
+    command: 'npm run start',
+    url: 'http://127.0.0.1:8080',
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
   },
   use: {
-    baseURL: "http://localhost:8080/",
+    baseURL: 'http://localhost:8080/',
   },
 });
