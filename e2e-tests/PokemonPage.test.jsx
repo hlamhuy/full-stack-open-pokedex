@@ -10,4 +10,9 @@ describe("Pokedex", () => {
       )
     ).toBeVisible();
   });
+  test("navigate to pokemon page", async ({ page }) => {
+    await page.goto("");
+    await page.getByRole("link", { name: "blastoise" }).click();
+    await expect(page.getByText("Torrent")).toBeVisible();
+  });
 });
