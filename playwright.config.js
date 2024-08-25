@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig } from '@playwright/test'
 export default defineConfig({
   testDir: './e2e-tests',
   testIgnore: './test',
@@ -11,4 +11,4 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:8080/',
   },
-});
+})
