@@ -56,6 +56,7 @@ jobs:
   tag_and_version:
     needs: [deploy]
     name: Bump version and push tag
+    runs-on: ubuntu-latest
     steps:
       - uses: anothrNick/github-tag-action@1.70.0
         if: ${{ github.event_name == 'push' }}
