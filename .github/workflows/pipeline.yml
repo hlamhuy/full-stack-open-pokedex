@@ -57,19 +57,19 @@ jobs:
         uses: tsickert/discord-webhook@v6.0.0
         if: success()
         with:
-          webhook-url: ${{ secrets.WEBHOOK_URL }}
-          embed-title: "A new version of Pokedex deployed"
-          embed-description: ""
-          embed-footer-text: "Severity: Information" 
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+          embed-title: 'A new version of Pokedex deployed'
+          embed-description: ''
+          embed-footer-text: 'Severity: Information'
       - name: Test Success
         uses: tsickert/discord-webhook@v6.0.0
         if: failure()
         with:
-          webhook-url: ${{ secrets.WEBHOOK_URL }}
-          embed-title: "Build failed!"
-          embed-description: "Commit https://github.com/${{ github.repository }}/commit/${{ github.sha }} by ${{ github.actor }} broke the build"
-          embed-footer-text: "Severity: Error" 
-            
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+          embed-title: 'Build failed!'
+          embed-description: 'Commit https://github.com/${{ github.repository }}/commit/${{ github.sha }} by ${{ github.actor }} broke the build'
+          embed-footer-text: 'Severity: Error'
+
   tag_and_version:
     if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
     needs: deploy
