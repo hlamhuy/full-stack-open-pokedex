@@ -55,11 +55,12 @@ jobs:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
   tag_and_version:
     if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
-    needs: [deploy]
+    needs: deploy
     name: Bump version and push tag
     runs-on: ubuntu-latest
     steps:
-      - uses: anothrNick/github-tag-action@1.70.0
+      - uses: actions/checkout@v4
+      - uses: anothrNick/github-tag-action@8c8163ef62cf9c4677c8e800f36270af27930f42
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
