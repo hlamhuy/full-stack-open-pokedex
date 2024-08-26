@@ -59,7 +59,7 @@ jobs:
         with:
           description: Test Success
           severity: info
-          details: Deployed to https://full-stack-open-pokedex-winter-fire-3021.fly.dev by ${{ github.actor }}
+          details: 'Deployed to https://full-stack-open-pokedex-winter-fire-3021.fly.dev by ${{ github.actor }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Test Failure
         uses: rjstone/discord-webhook-notify@v1
